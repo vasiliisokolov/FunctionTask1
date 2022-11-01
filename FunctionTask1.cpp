@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <vector>
 
-void swapvec(std::vector<int>&, int&);
+void swapvec(std::vector<int>&, int*);
 
 int main()
 {
@@ -17,6 +17,9 @@ int main()
     {
         std::cout << b[i] << " ";
     }
+    std::cout << std::endl;
+
+    swapvec(a, b);
     std::cout << "After swap: " << std::endl;
     for (int i = 0; i < 5; i++)
     {
@@ -29,6 +32,14 @@ int main()
     }
 }
 
-void swapvec(std::vector<int>&, int&)
+void swapvec(std::vector<int>& vec, int* mass)
 {
+    
+    for (int i = 0; i < 5; i++)
+    {
+        int temp = 0;
+        temp = vec[i];
+        vec[i] = *(mass+i);
+        *(mass + i) = temp;
+    }
 }
